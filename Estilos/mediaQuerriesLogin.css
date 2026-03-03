@@ -1,11 +1,40 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 767px) {
+
+       
+    section#login #img {
+        top: 0;
+        height: 200px;
+       transition: transform 0.6s ease, top 0.6s ease, bottom 0.6s ease;
+    }
+
+    /*cadastro*/
+    section#login.active #img {
+        top: auto;          
+        bottom: 0;         
+        height: 200px;
+    }
+
+   
+    section#login.active #container-forms {
+        margin-top: 0;     
+        transform: translateY(-200px);
+    }
+    
+}
+
 @media screen and (min-width: 768px) and (max-width: 992px) {
     /* para tablet*/
 
     body {
         background-image: url(imagens/imagem\ de\ fundo_telasMaiores.jpg);
     }
+
+    #container-forms {
+    margin-top: 0px;
+   
+}
 
     section#login {
         width: 80vw;

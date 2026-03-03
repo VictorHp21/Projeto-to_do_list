@@ -18,12 +18,28 @@
 <body>
 
     <main>
-        <section id="login">
+
+        <section id="login-cadastro">
+
+            <div class="btn-login-cadastro">
+                <button id="btnCadastrar">Cadastrar</button>
+                <button id="btnLogar">Já tenho uma conta</button>
+            </div>
+
+            <section id="login">
+
+            
+
             <div id="img">
 
             </div>
 
-            <div id="formulario">
+            <!--div da área total-->
+
+            <div id="container-forms">
+                  <!--formulário Login-->
+
+            <div class="form-box" id="form-login">
                 <h1>LOGIN</h1>
                 <p>Seja bem-vindo! <br>
                     Faça login para acessar sua lista de tarefas.
@@ -35,7 +51,7 @@
                             <i class="fa-solid fa-at"></i>
                         </span>
                         <input type="email" id="loginM" placeholder="Seu e-mail">
-                        
+
                     </div>
 
                     <div class="campo">
@@ -48,8 +64,46 @@
                     <a href="esqueciSenha.html" class="botao" id="btn-esqueci">Esqueci minha senha</a>
                 </form>
             </div>
+
+            <!--Formulário cadastro-->
+
+            <div class="form-box" id="form-cadas">
+                <h1>CADASTRAR</h1>
+                <p>Crie uma conta para organizar suas tarefas</p>
+
+                <form autocomplete="on" action="
+                ">
+                    <div class="campo">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Seu nome">
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-at"></i>
+                        <input type="email" placeholder="Seu e-mail">
+                    </div>
+                    <div class="campo">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" placeholder="Crie uma senha">
+                    </div>
+
+                    <input type="submit" value="Cadastrar" id="btn-entrar">
+                    <button type="button" class="trocar" id="btn-logar">Já tenho conta</button>
+                </form>
+            </div>
+            </div>
+
+          
+
         </section>
+
+        </section>
+
+       
+
+        
     </main>
+
+    <script src="../codePgLogin/script.js"></script>
 
 </body>
 
