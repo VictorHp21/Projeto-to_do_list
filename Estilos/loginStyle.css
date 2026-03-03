@@ -82,6 +82,10 @@ section#login-cadastro {
     cursor: pointer;
 }
 
+section#login-cadastro{
+    background-color: var(--color2);
+}
+
 
 section#login {
 
