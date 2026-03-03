@@ -2,26 +2,39 @@
 
 @media screen and (max-width: 767px) {
 
-       
+
     section#login #img {
         top: 0;
         height: 200px;
-       transition: transform 0.6s ease, top 0.6s ease, bottom 0.6s ease;
+        transition: transform 0.6s ease, top 0.6s ease, bottom 0.6s ease;
     }
 
     /*cadastro*/
-    section#login.active #img {
-        top: auto;          
-        bottom: 0;         
-        height: 200px;
+
+    #form-cadas {
+        left: 100%;
+        opacity: 0;
+        height: 300px;
     }
 
-   
-    section#login.active #container-forms {
-        margin-top: 0;     
-        transform: translateY(-200px);
+    section#login.active #img {
+        position: relative;
+        top: 55%;
+        right: 2%;
+        bottom: 0;
+        height: 225px;
+        width: 250px;
+        background-size: cover;
+        background-position: center;
     }
-    
+
+
+
+    section#login.active #container-forms {
+        margin-top: 0;
+        transform: translateY(-235px);
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -32,9 +45,9 @@
     }
 
     #container-forms {
-    margin-top: 0px;
-   
-}
+        margin-top: 0px;
+
+    }
 
     section#login {
         width: 80vw;
@@ -98,7 +111,7 @@
         margin: 20px 0px;
     }
 
-     div.campo>input {
+    div.campo>input {
         height: 100%;
         width: 95%;
         border-radius: 4px;
