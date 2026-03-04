@@ -138,7 +138,7 @@ section#login #img {
     height: 200%;
     width: 100%;
     top: 0;
-    /*right: 0;*/
+    right: 0;
     background: url(../Estilos/imagens/pexels-bao-dang-1259885-3700369.jpg) center/cover no-repeat;
     transition: all 0.6s ease-in-out;
     background-size: cover;
@@ -166,12 +166,21 @@ div#form-login {
     color: white;
 }
 
-div#formulario>h1 {
+div#form-login>h1 {
     text-align: center;
     margin-bottom: 10px;
 }
 
-div#formulario>p {
+div#form-login>p {
+    font-size: 0.8em;
+}
+
+div#form-cadas>h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+div#form-cadas>p {
     font-size: 0.8em;
 }
 
