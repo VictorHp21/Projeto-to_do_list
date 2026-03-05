@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
+:root {
+    --color1: #4b0082;
+    --color2: #0D0D0D;
+    --color3: #F7DF1E;
+
+    --font1: "Playfair Display", serif;
+
+}
+
+* {
+    font-family: var(--font1);
+
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body,
+html {
+    background: var(--color2) url(imagens/imagem\ de\ fundo_telasMaiores.jpg);
+}
+
+main {
+    width: 80vw;
+    height: 90vh;
+    background-color: #011522;
+
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+
+    color: white;
+}
+
+
+main>h1 {
+    
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.addLista {
+    margin-top: 5%;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+    gap: 40%;
+}
+
+.add-task{
+    margin-left: 40px;
+    
+}
+
+.add-task > p{
+    margin-top: 7px;
+    
+}
+
+#taskArea{
+   
+    width: 30vw;
+    height: 250px;
+}
+
+#dataArea{
+    display: block;
+    
+}
+
+#date-input{
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--color2);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+filter: invert(1);
+cursor:pointer;
+}
+
+#dataArea.hide, #taskArea.hide{
+    
+    display: none;
+    padding: 5px;
+    
+}
+
+
+
+#addSpan{
+    margin-left: 35px;
+}
+
+#btn-Tarefa{
+    display: inline-block;
+    width: 31%;
+    height: 23px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--color2);
+    color: #00FF7F;
+}
+
+#btn-Tarefa:hover{
+    color:#39FF14;
+    border: 1px solid #00FF7F;             
+}
+
+#btn-add{
+    margin-right: 70px;
+}
+
+#btn-voltar{
+     display: inline-block;
+    width: 31%;
+    height: 23px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--color2);
+    color: #ff0000;
+}
+
+#btn-voltar:hover{
+    color:#ff0000;
+    border: 1px solid #f72727;             
+}
+
+
+span{
+    padding: 2px;
+}
+
+
+
+/*Card onde ficará as tarefas salvas
+esta é a base
+editar o estilo para encaixar os elementos*/
+
+.task-card{
+    width:300px;
+    background:#111;
+    border:1px solid #2a2a2a;
+    border-radius:10px;
+    padding:15px;
+    color:white;
+    font-family:Arial;
+}
+
+.task-content{
+    margin-bottom:10px;
+}
+
+.task-text{
+    font-size:16px;
+    line-height:1.4;
+}
+
+.task-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.task-date{
+    font-size:14px;
+    color:#aaa;
+}
+
+.task-status{
+    font-size:13px;
+    padding:4px 10px;
+    border-radius:20px;
+    background:#444;
+}
+
+
+
+
+/*Botão adicionar*/
+
+/* From Uiverse.io by OnCloud125252 */
+/* Note that you only needs to edit the config to customize the button! */
+
+.plusButton {
+    /* Config start */
+    --plus_sideLength: 2.5rem;
+    --plus_topRightTriangleSideLength: 0.9rem;
+    /* Config end */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    width: var(--plus_sideLength);
+    height: var(--plus_sideLength);
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.plusButton::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.plusButton:hover {
+    cursor: pointer;
+}
+
+.plusButton:hover::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton:focus-visible::before {
+    --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton>.plusIcon {
+    fill: white;
+    width: calc(var(--plus_sideLength) * 0.7);
+    height: calc(var(--plus_sideLength) * 0.7);
+    z-index: 1;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.plusButton:hover>.plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+}
+
+.plusButton:focus-visible>.plusIcon {
+    fill: black;
+    transform: rotate(180deg);
+}

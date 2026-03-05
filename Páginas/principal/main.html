@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+
+    <link rel="stylesheet" href="../../Estilos/main.css">
+</head>
+
+<body>
+
+    <main>
+        <h1>lista de tarefas</h1>
+
+        <!--Seção adc tarefa-->
+        <section class="addLista">
+
+
+            <div class="add-task">
+                <p>Adicionar tarefa</p>
+
+                <textarea name="" id="taskArea" class="hide"></textarea>
+                <div id="dataArea" class="hide">
+                    <span id="">DATA: </span>
+                    <input type="date" name="" id="date-input">
+
+                    <button id="btn-voltar" onclick="voltaTarefa()">
+                        < VOLTAR</button>
+
+                            <button id="btn-Tarefa">ADD LISTA</button>
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <!-- Botão adiocionar tarefa -->
+            <div tabindex="0" id="btn-add" class="plusButton" onclick="mostrarTarefa()">
+                <svg class="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <g mask="url(#mask0_21_345)">
+                        <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+
+        </section>
+
+        <br>
+        <hr>
+
+
+        <section>
+            <h1>Suas tarefas</h1>
+
+            <div class="task-card">
+
+                <div class="task-content">
+                    <p class="task-text">
+                        Estudar JavaScript e terminar projeto de lista de tarefas
+                    </p>
+                </div>
+
+                <div class="task-footer">
+
+                    <span class="task-date">
+                        📅 10/03/2026
+                    </span>
+
+                    <span class="task-status">
+                        Pendente
+                    </span>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
