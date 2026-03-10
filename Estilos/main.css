@@ -94,6 +94,11 @@ filter: invert(1);
 cursor:pointer;
 }
 
+
+
+
+
+
 #dataArea.hide, #taskArea.hide, #title.hide{
     
     display: none;
@@ -101,9 +106,6 @@ cursor:pointer;
     
 }
 
-.hide{
-    display: none;
-}
 
 
 
@@ -167,10 +169,13 @@ span{
 
 .task-cards{
     display: flex;
-    margin-right: 20px;
-    margin-left: 20px;
+    padding: 10px;
+    justify-content: center;
     background-color: #f72727;
     gap: 15px;
+
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -188,6 +193,12 @@ editar o estilo para encaixar os elementos*/
     padding:15px;
     color:white;
     font-family:Arial;
+    margin-left: 10px;
+}
+
+.task-title{
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .task-content{
@@ -197,27 +208,91 @@ editar o estilo para encaixar os elementos*/
 .task-text{
     font-size:16px;
     line-height:1.4;
+    padding: 10px;
+    margin-bottom: 5px;
 }
 
 .task-footer{
     display:flex;
-    justify-content:space-between;
+    justify-content: space-around;
     align-items:center;
 }
 
 .task-date{
     font-size:14px;
     color:#aaa;
+   
 }
 
 .task-status{
     font-size:13px;
-    padding:4px 10px;
+    padding:5px 10px;
     border-radius:20px;
     background:#444;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*Botao de status da tarefa*/
+
+.btn-status{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-status.pendente{
+    background:#FFD700;
+}
+
+.btn-status.atraso{
+    background:#ff0000;
+}
+
+.btn-status.feito{
+    background:#00FF7F;
 }
 
 
+
+
+
+
+.status-menu{
+    
+    top:20px;
+    right:0;
+    background:#222;
+    border:1px solid #444;
+    border-radius:5px;
+    display:flex;
+    flex-direction:column;
+
+    position: absolute;
+}
+
+.status-menu button{
+    background:none;
+    border:none;
+    color:white;
+    padding:5px 10px;
+    cursor:pointer;
+}
+
+.status-menu button:hover{
+    background:#333;
+}
+
+
+.status-menu.hide{
+    display: none;
+   
+}
 
 
 /*Botão adicionar*/
