@@ -66,6 +66,11 @@ main>h1 {
     
 }
 
+#title{
+    display: block;
+    margin-bottom: 20px;
+}
+
 #taskArea{
    
     width: 30vw;
@@ -89,11 +94,15 @@ filter: invert(1);
 cursor:pointer;
 }
 
-#dataArea.hide, #taskArea.hide{
+#dataArea.hide, #taskArea.hide, #title.hide{
     
     display: none;
     padding: 5px;
     
+}
+
+.hide{
+    display: none;
 }
 
 
@@ -144,13 +153,35 @@ span{
 }
 
 
+.suas-tarefas{
+    
+    text-align: center;
+    justify-content: center;
+   
+}
+
+.suas-tarefas > h1{
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.task-cards{
+    display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #f72727;
+    gap: 15px;
+}
+
 
 /*Card onde ficará as tarefas salvas
 esta é a base
 editar o estilo para encaixar os elementos*/
 
 .task-card{
-    width:300px;
+    width:40%;
+    height: 150px;
+    
     background:#111;
     border:1px solid #2a2a2a;
     border-radius:10px;

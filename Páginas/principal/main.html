@@ -21,6 +21,11 @@
             <div class="add-task">
                 <p>Adicionar tarefa</p>
 
+                <span id="title" class="hide">Titulo:
+                    <input type="text" >
+                </span>
+                
+
                 <textarea name="" id="taskArea" class="hide"></textarea>
                 <div id="dataArea" class="hide">
                     <span id="">DATA: </span>
@@ -55,30 +60,34 @@
         <hr>
 
 
-        <section>
+        <section class="suas-tarefas">
             <h1>Suas tarefas</h1>
 
-            <div class="task-card">
+            <div class="task-cards">
+                <div class="task-card">
 
-                <div class="task-content">
-                    <p class="task-text">
-                        Estudar JavaScript e terminar projeto de lista de tarefas
-                    </p>
+                    <div class="task-content">
+                        <p class="task-text">
+                            Estudar JavaScript e terminar projeto de lista de tarefas
+                        </p>
+                    </div>
+
+                    <div class="task-footer">
+
+                        <span class="task-date">
+                            📅 10/03/2026
+                        </span>
+
+                        <span class="task-status">
+                            Pendente
+                        </span>
+
+                    </div>
+
                 </div>
-
-                <div class="task-footer">
-
-                    <span class="task-date">
-                        📅 10/03/2026
-                    </span>
-
-                    <span class="task-status">
-                        Pendente
-                    </span>
-
-                </div>
-
             </div>
+
+
         </section>
 
     </main>
