@@ -84,8 +84,13 @@ section#login-cadastro {
 
 section#login-cadastro{
     background-color: var(--color2);
+    
 }
 
+
+section#login-cadastro input{
+    color: #0D0D0D;
+}
 
 section#login {
 
@@ -252,6 +257,7 @@ form>a.botao:hover {
 #form-login {
     left: 0;
     opacity: 1;
+    color: #0D0D0D;
 }
 
 

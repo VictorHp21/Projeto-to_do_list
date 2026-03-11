@@ -169,7 +169,7 @@ span{
 
 .task-cards{
     display: flex;
-    padding: 10px;
+    padding: 10px ;
     justify-content: center;
     background-color: #f72727;
     gap: 15px;
