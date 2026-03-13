@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name= "usuarios")
@@ -53,5 +54,18 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return Objects.equals(senha, usuario.senha);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(senha);
     }
 }
