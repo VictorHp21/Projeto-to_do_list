@@ -45,7 +45,7 @@
                     Faça login para acessar sua lista de tarefas.
                 </p>
 
-                <form class="forms"  action="" method="post" autocomplete="on">
+                <form class="forms" id="loginForm" action="" method="post" autocomplete="on">
                     <div class="campo">
                         <span class="iconMail">
                             <i class="fa-solid fa-at"></i>
@@ -80,6 +80,8 @@
                     <div class="campo">
                         <i class="fa-solid fa-at"></i>
                         <input type="email" id="email" placeholder="Seu e-mail">
+
+                         <small class="erro" id="erro-email"></small>
                     </div>
                     <div class="campo">
                         <i class="fa-solid fa-key"></i>

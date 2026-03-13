@@ -12,6 +12,57 @@ btnLogar.addEventListener("click", () => {
 
 
 
+document.getElementById("email").addEventListener("input", function () {
+
+    document.getElementById("erro-email").textContent = ""
+
+    this.classList.remove("input-erro")
+
+})
+
+
+
+
+
+//login
+
+document.getElementById("loginForm").addEventListener("submit", async function (e){
+    e.preventDefault()
+
+
+    const email = document.getElementById("loginM").value
+    const senha = document.getElementById("isenha").value
+
+    const usuario = {
+        email: email,
+        senha: senha
+    }
+
+    const respostaLogin = await fetch("http://localhost:8080/usuarios/login", {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(usuario)
+
+    })
+
+    const mensagemLogin = await respostaLogin.text()
+
+    if (respostaLogin.ok) {
+        document.getElementById("loginForm").reset()
+
+        window.location.href = "../principal/main.html"
+    } else{
+        alert(mensagemLogin)
+    }
+})
+
+
+
+
 // para enviar os dados de cadastro
 
 document.getElementById("formulario-cadastro").addEventListener("submit", async function (e) {
@@ -21,15 +72,17 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
     const email = document.getElementById("email").value
     const senha = document.getElementById("senha").value
 
-      if(!nome || !email || !senha){
+    const erroEmail = document.getElementById("erro-email")
+
+    if (!nome || !email || !senha) {
         alert("Preencha todos os campos")
         return
     }
 
-    if(!email.includes("@")){
-    alert("Digite um email válido")
-    return
-}
+    if (!email.includes("@")) {
+        alert("Digite um email válido")
+        return
+    }
 
     const usuario = {
         nome: nome,
@@ -46,10 +99,15 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
             },
 
             body: JSON.stringify(usuario)
+
+            
+
         })
 
-        if (resposta.ok){
-           // alert("Usuário cadastrado")
+        const mensagem = await resposta.text()
+
+        if (resposta.ok) {
+            // alert("Usuário cadastrado")
 
             document.getElementById("formulario-cadastro").reset()
 
@@ -57,16 +115,19 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
 
 
         } else {
-            alert("Erro ao cadastrar")
+            erroEmail.textContent = mensagem
+
+            document.getElementById("email").classList.add("input-erro")
+
         }
-    } catch(erro){
-       console.error(erro)
+    } catch (erro) {
+        console.error(erro)
 
         alert("Erro na api")
     }
 
-   
 
-   // const dados = await resposta.json()
+
+    // const dados = await resposta.json()
 
 })

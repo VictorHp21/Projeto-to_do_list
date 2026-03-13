@@ -278,3 +278,18 @@ section#login.active #img {
 
 }
 
+
+
+/*Se o email ja estiver cadastrado*/
+
+.input-erro{
+    border: 1px solid red;
+}
+
+
+.erro{
+    color: var(--color3);
+    font-size: 13px;
+    display: block;
+    margin-top: 4px;
+}
