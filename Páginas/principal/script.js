@@ -1,7 +1,12 @@
 
 // carregar tarefas salvas
 
-window.onload = carregarTarefas
+window.onload = ()=> {
+    carregarTarefas()
+    verificarAtrasos()
+} 
+
+
 
 
 
@@ -64,10 +69,8 @@ function setStatus(element, status) {
         text.innerHTML = 'Em atraso'
     }
 
+
     container.querySelector('.status-menu').classList.add('hide')
-
-
-
 
 
 }
@@ -103,7 +106,7 @@ async function adicionarTarefa() {
     const Tarefa = {
         titulo: titulo,
         descricao: descricao,
-        dataPrazo: dataPrazo
+        dataPrazo: prazo
     }
 
     try {
@@ -134,7 +137,7 @@ async function adicionarTarefa() {
             document.getElementById("taskArea").value = ""
 
 
-            criarCardTarefa()
+            
 
 
 
@@ -194,6 +197,8 @@ function criarCardTarefa(tarefa) {
     const card = document.createElement("div")
     card.classList.add("task-card")
 
+    card.dataset.prazo = tarefa.dataPrazo
+
     card.innerHTML = `
          <div class="task-content">
 
@@ -216,7 +221,7 @@ function criarCardTarefa(tarefa) {
                 <span class="task-status-text">${status}</span>
             </span>
 
-            <button class="btn-custom-remove">Excluir Tarefa</button>
+            <button class="btn-custom-remove" onclick="removerTarefa(this)" data-id="${tarefa.id}">Excluir Tarefa</button>
 
         </div>
     `
@@ -226,7 +231,7 @@ function criarCardTarefa(tarefa) {
 }
 
 
-function formatarData(data){
+function formatarData(data) {
 
     const d = new Date(data)
 
@@ -234,3 +239,56 @@ function formatarData(data){
 
 }
 
+
+
+
+
+async function removerTarefa(botao) {
+
+    const id = botao.dataset.id;
+
+    try {
+
+        const resposta = await fetch(`http://localhost:8080/tarefas/${id}`, {
+            method: "DELETE"
+        })
+
+        if (resposta.ok) {
+
+            botao.closest(".task-card").remove()
+
+        }
+
+    } catch (erro) {
+        console.error("Erro ao remover tarefa", erro)
+    }
+
+}
+
+
+
+function verificarAtrasos(){
+
+    const cards = document.querySelectorAll(".task-card")
+
+    const hoje = new Date()
+    hoje.setHours(0,0,0,0)
+
+    cards.forEach(card => {
+
+        const prazo = new Date(card.dataset.prazo)
+
+        if(prazo < hoje){
+
+            const button = card.querySelector(".btn-status")
+            const text = card.querySelector(".task-status-text")
+
+            button.classList.remove("pendente")
+            button.classList.add("atraso")
+
+            text.textContent = "Em atraso"
+        }
+
+    })
+
+}

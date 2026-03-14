@@ -23,10 +23,10 @@ public class TarefaController {
 
 
 
-    @PostMapping
-    public ResponseEntity<?> salvarTarefa(@RequestBody Tarefa tarefa){
+    @PostMapping("/tarefas/{usuarioId}")
+    public ResponseEntity<?> salvarTarefa(@RequestBody Tarefa tarefa, @PathVariable Long usuarioId){
         try{
-            Tarefa novaTarefa = service.cadastrarTarefa(tarefa);
+            Tarefa novaTarefa = service.cadastrarTarefa(tarefa, usuarioId);
             return ResponseEntity.ok(novaTarefa);
 
         } catch (RuntimeException e) {
@@ -34,9 +34,9 @@ public class TarefaController {
         }
     }
 
-    @GetMapping
-    public List<Tarefa> listarTarefas(){
-        return service.listarTodos();
+    @GetMapping("/tarefas/{usuarioId}")
+    public List<Tarefa> listarTarefas(@PathVariable Long usuarioId){
+        return service.listarPorUsuario(usuarioId);
     }
 
 

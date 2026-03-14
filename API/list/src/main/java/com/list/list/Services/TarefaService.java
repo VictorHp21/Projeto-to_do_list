@@ -16,16 +16,23 @@ public class TarefaService {
 
     private final TarefaRepository repository;
 
+    private final UsuarioRepository usuarioRepository;
 
 
 
-    public TarefaService(TarefaRepository repository) {
+    public TarefaService(TarefaRepository repository, UsuarioRepository usuarioRepository) {
         this.repository = repository;
+        this.usuarioRepository = usuarioRepository;
     }
 
 
 
-    public Tarefa cadastrarTarefa(Tarefa tarefa){
+    public Tarefa cadastrarTarefa(Tarefa tarefa, Long usuarioId){
+
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(()-> new RuntimeException("Usuário não encontrado"));
+
+        tarefa.setUsuario(usuario);
 
         return repository.save(tarefa);
     }
@@ -36,8 +43,8 @@ public class TarefaService {
 
 
 
-    public List<Tarefa> listarTodos(){
-        return repository.findAll();
+    public List<Tarefa> listarPorUsuario(Long usuarioId){
+        return repository.findByUsuarioId(usuarioId);
     }
 
     public boolean DeletarTarefa(Long id){

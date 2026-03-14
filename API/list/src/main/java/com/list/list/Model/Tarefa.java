@@ -61,6 +61,10 @@ public class Tarefa {
     public void setDataPrazo(LocalDate dataPrazo) {
         this.dataPrazo = dataPrazo;
     }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
 
 
