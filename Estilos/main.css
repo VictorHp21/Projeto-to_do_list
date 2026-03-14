@@ -259,6 +259,24 @@ editar o estilo para encaixar os elementos*/
 }
 
 
+.btn-custom-remove{
+    border: 1px solid red;
+    color: red;
+    background-color: var(--color2);
+    height: 30px;
+    width: 100px;
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+.btn-custom-remove:hover{
+    cursor: pointer;
+    height: 32px;
+    width: 105px;
+
+    box-shadow: 0 0 8px red;
+}
+
 
 
 

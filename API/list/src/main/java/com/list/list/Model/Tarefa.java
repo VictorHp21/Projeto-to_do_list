@@ -49,6 +49,18 @@ public class Tarefa {
     public Usuario getUsuario() {
         return usuario;
     }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setDataPrazo(LocalDate dataPrazo) {
+        this.dataPrazo = dataPrazo;
+    }
 }
 
 

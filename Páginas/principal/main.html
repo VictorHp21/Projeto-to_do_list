@@ -18,11 +18,11 @@
         <section class="addLista">
 
 
-            <div class="add-task">
+            <div class="add-task" id="area-tarefa">
                 <p>Adicionar tarefa</p>
 
                 <span id="title" class="hide">Titulo:
-                    <input type="text" >
+                    <input type="text"  id="titulo">
                 </span>
                 
 
@@ -34,7 +34,7 @@
                     <button id="btn-voltar" onclick="voltaTarefa()">
                         < VOLTAR</button>
 
-                            <button id="btn-Tarefa">ADD LISTA</button>
+                            <button id="btn-Tarefa" onclick="adicionarTarefa()">ADD LISTA</button>
 
 
 
@@ -65,41 +65,12 @@
 
             <div class="task-cards">
 
-                <div class="task-card">
-
-                    <div class="task-content">
-
-                        <h1 class="task-title">JS titulo</h1>
-
-                        <p class="task-text">
-                            Estudar JavaScript e terminar projeto de lista de tarefas
-                        </p>
-                    </div>
-
-                    <div class="task-footer">
-
-                        <span class="task-date">
-                            📅 10/03/2026
-                        </span>
-
-                        <span class="task-status">
-                            <button class="btn-status pendente" id="btn-status-m" onclick="mostrarMenuStatus(this)"></button>
-                            
-                            <span class="task-status-text">Pendente</span>
-
-                            <div class="status-menu hide" id="status-menu">
-                                <button onclick="setStatus(this, 'feito')">Finalizar</button>
-                                <button onclick="setStatus(this, 'pendente')">Pendente</button>
-                                <button onclick="setStatus(this, 'atraso')">Em Atraso</button>
-                            </div>
-
-                        </span>
-
-                    </div>
-
-                </div>
+               
 
 
+
+
+                
 
 
                   <div class="task-card">
@@ -132,40 +103,7 @@
 
                         </span>
 
-                    </div>
-
-                </div>
-
-
-                  <div class="task-card">
-
-                    <div class="task-content">
-
-                        <h1 class="task-title">JS titulo</h1>
-
-                        <p class="task-text">
-                            Estudar JavaScript e terminar projeto de lista de tarefas
-                        </p>
-                    </div>
-
-                    <div class="task-footer">
-
-                        <span class="task-date">
-                            📅 10/03/2026
-                        </span>
-
-                        <span class="task-status">
-                            <button class="btn-status pendente" id="btn-status-m" onclick="mostrarMenuStatus(this)"></button>
-                            
-                            <span class="task-status-text">Pendente</span>
-
-                            <div class="status-menu hide" id="status-menu">
-                                <button onclick="setStatus(this, 'feito')">Finalizar</button>
-                                <button onclick="setStatus(this, 'pendente')">Pendente</button>
-                                <button onclick="setStatus(this, 'atraso')">Em Atraso</button>
-                            </div>
-
-                        </span>
+                        <button class="btn-custom-remove">Excluir Tarefa</button>
 
                     </div>
 
