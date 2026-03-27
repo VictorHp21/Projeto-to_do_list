@@ -11,4 +11,4 @@ RUN mvn clean package -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["sh", "-c", "echo 'Arquivos em target:' && ls target && sleep 9999"]
