@@ -117,7 +117,7 @@ async function adicionarTarefa() {
     }
 
     try {
-        const resposta = await fetch("http://localhost:8080/tarefas", {
+        const resposta = await fetch("https://projeto-to-do-list-bfeq.onrender.com/tarefas", {
             method: "POST",
 
             headers: {
@@ -175,7 +175,7 @@ async function carregarTarefas() {
 
     try {
 
-        const resposta = await fetch("http://localhost:8080/tarefas", {
+        const resposta = await fetch("https://projeto-to-do-list-bfeq.onrender.com/tarefas", {
             headers: {
                 "Authorization": "Bearer " + token
             }
@@ -267,7 +267,7 @@ async function removerTarefa(botao) {
 
     try {
 
-        const resposta = await fetch(`http://localhost:8080/tarefas/${id}`, {
+        const resposta = await fetch(`https://projeto-to-do-list-bfeq.onrender.com/tarefas/${id}`, {
             method: "DELETE",
 
             headers: {

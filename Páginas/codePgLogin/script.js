@@ -38,7 +38,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         senha: senha
     }
 
-    const respostaLogin = await fetch("http://localhost:8080/usuarios/login", {
+    const respostaLogin = await fetch("https://projeto-to-do-list-bfeq.onrender.com/usuarios/login", {
         method: "POST",
 
         headers: {
@@ -102,7 +102,7 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
     }
 
     try {
-        const resposta = await fetch("http://localhost:8080/usuarios/cadastro", {
+        const resposta = await fetch("https://projeto-to-do-list-bfeq.onrender.com/usuarios/cadastro", {
             method: "POST",
 
             headers: {
