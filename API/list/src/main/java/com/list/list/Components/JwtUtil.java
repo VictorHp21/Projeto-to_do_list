@@ -12,7 +12,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private static final String SECRET = "minha-chave-super-secreta-com-mais-de-32";
+    private static final String SECRET = System.getenv("JWT_SECRET");
 
     private static final Key KEY = Keys.hmacShaKeyFor(SECRET.getBytes());
 
