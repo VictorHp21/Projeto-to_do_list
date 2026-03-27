@@ -61,7 +61,9 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
         document.getElementById("loginForm").reset()
 
-        window.location.href = "/principal/main.html"
+        window.location.href = "/Páginas/principal/main.html"
+
+        // /Páginas/codePgLogin/script.js
     } else{
 
         const mensagemLogin = await respostaLogin.text()
@@ -126,7 +128,7 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
 
             localStorage.setItem("token", token)
 
-            window.location.href = "/principal/main.html"
+            window.location.href = "/Páginas/principal/main.html"
 
 
         } else {
