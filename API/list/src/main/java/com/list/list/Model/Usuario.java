@@ -44,6 +44,10 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public long getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }

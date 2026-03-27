@@ -4,6 +4,7 @@ import com.list.list.Model.Tarefa;
 import com.list.list.Model.Usuario;
 import com.list.list.Services.TarefaService;
 import com.list.list.Services.UsuarioService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +24,14 @@ public class TarefaController {
 
 
 
-    @PostMapping("/tarefas/{usuarioId}")
-    public ResponseEntity<?> salvarTarefa(@RequestBody Tarefa tarefa, @PathVariable Long usuarioId){
+    @PostMapping
+    public ResponseEntity<?> salvarTarefa(@RequestBody Tarefa tarefa, HttpServletRequest request){
         try{
-            Tarefa novaTarefa = service.cadastrarTarefa(tarefa, usuarioId);
+
+            Usuario usuario = (Usuario) request.getAttribute("usuario");
+
+            Tarefa novaTarefa = service.cadastrarTarefa(tarefa, usuario.getId());
+            
             return ResponseEntity.ok(novaTarefa);
 
         } catch (RuntimeException e) {
@@ -34,9 +39,20 @@ public class TarefaController {
         }
     }
 
-    @GetMapping("/tarefas/{usuarioId}")
+    /*
+    *  @GetMapping("/tarefas/{usuarioId}")
     public List<Tarefa> listarTarefas(@PathVariable Long usuarioId){
         return service.listarPorUsuario(usuarioId);
+    }
+    * */
+
+
+    @GetMapping
+    public List<Tarefa> listar(HttpServletRequest request){
+
+        Usuario usuario = (Usuario) request.getAttribute("usuario");
+
+        return service.listarPorUsuario(usuario.getId());
     }
 
 

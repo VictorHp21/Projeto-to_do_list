@@ -1,10 +1,15 @@
+// token do usuário
+
+// intervalo para carregar tarefas
+ setInterval(carregarTarefas, 6000)
+
 
 // carregar tarefas salvas
 
-window.onload = ()=> {
+window.onload = () => {
     carregarTarefas()
     verificarAtrasos()
-} 
+}
 
 
 
@@ -83,6 +88,8 @@ let listaTarefas = []
 
 async function adicionarTarefa() {
 
+    let token = localStorage.getItem("token")
+
     const titulo = document.getElementById("titulo").value
     const descricao = document.getElementById("taskArea").value
     const dataPrazo = document.getElementById("date-input").value
@@ -114,7 +121,8 @@ async function adicionarTarefa() {
             method: "POST",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
             },
 
             body: JSON.stringify(Tarefa)
@@ -137,8 +145,7 @@ async function adicionarTarefa() {
             document.getElementById("taskArea").value = ""
 
 
-            
-
+            voltaTarefa()
 
 
 
@@ -164,11 +171,20 @@ async function adicionarTarefa() {
 
 async function carregarTarefas() {
 
+    let token = localStorage.getItem("token")
+
     try {
 
-        const resposta = await fetch("http://localhost:8080/tarefas")
+        const resposta = await fetch("http://localhost:8080/tarefas", {
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        })
 
         const tarefas = await resposta.json()
+
+        const container = document.querySelector(".task-cards")
+        container.innerHTML = ""
 
         tarefas.forEach(tarefa => {
             criarCardTarefa(tarefa)
@@ -245,12 +261,18 @@ function formatarData(data) {
 
 async function removerTarefa(botao) {
 
+    let token = localStorage.getItem("token")
+
     const id = botao.dataset.id;
 
     try {
 
         const resposta = await fetch(`http://localhost:8080/tarefas/${id}`, {
-            method: "DELETE"
+            method: "DELETE",
+
+            headers: {
+                "Authorization": "Bearer " + token
+            }
         })
 
         if (resposta.ok) {
@@ -267,18 +289,18 @@ async function removerTarefa(botao) {
 
 
 
-function verificarAtrasos(){
+function verificarAtrasos() {
 
     const cards = document.querySelectorAll(".task-card")
 
     const hoje = new Date()
-    hoje.setHours(0,0,0,0)
+    hoje.setHours(0, 0, 0, 0)
 
     cards.forEach(card => {
 
         const prazo = new Date(card.dataset.prazo)
 
-        if(prazo < hoje){
+        if (prazo < hoje) {
 
             const button = card.querySelector(".btn-status")
             const text = card.querySelector(".task-status-text")

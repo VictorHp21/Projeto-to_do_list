@@ -49,14 +49,25 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
     })
 
-    const mensagemLogin = await respostaLogin.text()
+   
 
     if (respostaLogin.ok) {
+        
+        // pegando token da resposta da API
+
+        const token = await respostaLogin.text()
+
+        localStorage.setItem("token", token)
+
         document.getElementById("loginForm").reset()
 
         window.location.href = "../principal/main.html"
     } else{
+
+        const mensagemLogin = await respostaLogin.text()
+
         alert(mensagemLogin)
+        console.log(mensagemLogin)
     }
 })
 
@@ -104,12 +115,16 @@ document.getElementById("formulario-cadastro").addEventListener("submit", async 
 
         })
 
-        const mensagem = await resposta.text()
+        
 
         if (resposta.ok) {
             // alert("Usuário cadastrado")
 
             document.getElementById("formulario-cadastro").reset()
+
+            const token = await  resposta.text()
+
+            localStorage.setItem("token", token)
 
             window.location.href = "../principal/main.html"
 
